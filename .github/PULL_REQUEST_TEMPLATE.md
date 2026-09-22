@@ -15,7 +15,8 @@
 
 ## 检查清单
 
-- [ ] 已阅读 [CONTRIBUTING.md](https://github.com/offerseed/.github/blob/main/CONTRIBUTING.md)
+- [ ] 已阅读 [CONTRIBUTING.md](https://github.com/offerseed/interview-experience/blob/main/CONTRIBUTING.md)
 - [ ] 使用了 [面经模板](https://github.com/offerseed/interview-experience/blob/main/templates/面经模板.md) 格式
+- [ ] 已注明求职方向（后端服务端 / 前端客户端 / 大模型算法 / Agent开发 / AI-Infra / 数据 / 基础架构 / 安全）
+- [ ] 文件放置在 `by-company/{公司名}/{方向}/` 目录下
 - [ ] 未泄露面试官真实姓名或涉及商业机密的信息
-- [ ] 文件放置在正确的目录下
