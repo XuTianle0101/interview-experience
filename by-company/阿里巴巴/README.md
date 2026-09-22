@@ -16,6 +16,7 @@
 
 | 日期 | 岗位 | 轮次 | 链接 |
 | :--- | :--- | :--- | :--- |
+| 2026-09 | Agent 开发工程师 | 4轮技术 + HR | [阿里巴巴Agent开发面试](https://offerseed.github.io/interview-experience/by-company/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Agent%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95.html) |
 | 待补充 | Java 后端 | 技术一面 | - |
 | 待补充 | 算法工程师 | 技术二面 | - |
 | 待补充 | 数据开发 | 技术一面 | - |
