@@ -4,8 +4,8 @@
 
 ## 📂 目录结构
 
-- `by-company/` 按公司分类（如 `bytedance/`、`tencent/`、`openai/`）
-- `by-role/` 按岗位分类（如 `algorithm/`、`backend/`、`product/`）
+- `by-company/` 按公司分类（如 `字节跳动/`、`腾讯/`、`阿里巴巴/`）
+- `by-role/` 按岗位分类（如 `Agent开发/`、`AI Infra/`、`大模型/算法/`）
 - `templates/` 面经投稿模板
 
 ## 🚀 如何使用
