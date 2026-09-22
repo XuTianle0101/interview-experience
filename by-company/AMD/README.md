@@ -14,7 +14,7 @@
 
 | 日期 | 岗位 | 轮次 | 链接 |
 | :--- | :--- | :--- | :--- |
-| 2026-09 | GPU 加速工程师 | 3轮技术 + HR | [AMD GPU加速面试](./AMD-GPU加速面试.html) |
+| 2026-09 | GPU 加速工程师 | 3轮技术 + HR | [AMD GPU加速面试](https://offerseed.github.io/interview-experience/by-company/AMD/AMD-GPU%E5%8A%A0%E9%80%9F%E9%9D%A2%E8%AF%95.html) |
 
 ## 高频考点
 
