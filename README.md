@@ -9,8 +9,8 @@
 - `templates/` 面经投稿模板
 
 ## 🚀 如何使用
-
-1. 找到你目标公司或岗位对应的文件夹。
+进入github page：https://offerseed.github.io/interview-experience/
+1. 通过搜索，或者按钮选择你想看的面经分类。
 2. 阅读面经，了解面试流程、考点分布与真题。
 3. 欢迎按模板投稿你的面经，帮助更多同学。
 
