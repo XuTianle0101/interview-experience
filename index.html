@@ -3,210 +3,201 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>offerseed 面经合集</title>
+<title>offerseed · 面经合集</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 :root {
-  --bg: #f8f9fa;
+  --bg: #fafafa;
+  --bg-warm: #f5f3ef;
   --card: #ffffff;
-  --border: #e2e8f0;
-  --text: #1a202c;
-  --text-secondary: #64748b;
-  --accent: #3b82f6;
-  --accent-dark: #2563eb;
-  --code-bg: #f1f5f9;
-  --green: #16a34a;
-  --green-light: #dcfce7;
-  --orange: #ea580c;
-  --orange-light: #fed7aa;
-  --red: #dc2626;
-  --red-light: #fee2e2;
-  --purple: #7c3aed;
-  --purple-light: #ede9fe;
-  --teal: #0d9488;
-  --teal-light: #ccfbf1;
-  --pink: #db2777;
-  --pink-light: #fce7f3;
-  --indigo: #4f46e5;
-  --indigo-light: #e0e7ff;
+  --border: #ececec;
+  --text: #1d1d1f;
+  --text-sub: #86868b;
+  --text-mute: #aeaeb2;
+  --accent: #6366f1;
+  --radius: 16px;
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.10);
 }
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
-.hero {
-  background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #3b82f6 100%);
-  color: white;
-  padding: 64px 24px 48px;
+
+.header {
+  padding: 56px 24px 40px;
   text-align: center;
 }
-.hero h1 { font-size: 2rem; margin-bottom: 12px; font-weight: 800; letter-spacing: -0.02em; }
-.hero p { font-size: 1rem; opacity: 0.8; max-width: 600px; margin: 0 auto 24px; }
-.search-box {
-  max-width: 480px;
-  margin: 0 auto;
-  position: relative;
-}
-.search-box input {
-  width: 100%;
-  padding: 12px 20px 12px 44px;
-  border: none;
-  border-radius: 12px;
-  font-size: 0.95rem;
-  background: rgba(255,255,255,0.95);
+.brand {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
   color: var(--text);
-  outline: none;
 }
-.search-box svg {
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  fill: var(--text-secondary);
+.header h1 {
+  font-size: 2.6rem; font-weight: 800;
+  letter-spacing: -0.03em; margin-bottom: 12px;
+  background: linear-gradient(135deg, #1d1d1f 0%, #6366f1 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
-.container { max-width: 960px; margin: 0 auto; padding: 32px 20px 64px; }
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 28px;
-  justify-content: center;
+.tagline { font-size: 1.05rem; color: var(--text-sub); max-width: 520px; margin: 0 auto 28px; }
+.search-wrap { max-width: 440px; margin: 0 auto; position: relative; }
+.search-wrap input {
+  width: 100%; padding: 13px 18px 13px 46px;
+  border: 1.5px solid var(--border); border-radius: 14px;
+  font-size: 0.95rem; background: var(--card); color: var(--text);
+  outline: none; transition: border-color 0.2s, box-shadow 0.2s; font-family: inherit;
+}
+.search-wrap input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(99,102,241,0.08); }
+.search-wrap input::placeholder { color: var(--text-mute); }
+.search-icon {
+  position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+  width: 18px; height: 18px; stroke: var(--text-mute); fill: none; stroke-width: 2;
+}
+.stats-row { display: flex; justify-content: center; gap: 40px; margin-top: 28px; }
+.stat-item { text-align: center; }
+.stat-num { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; }
+.stat-label { font-size: 0.78rem; color: var(--text-mute); margin-top: 2px; }
+
+.main { max-width: 920px; margin: 0 auto; padding: 0 20px 80px; }
+
+.filter-section { margin-bottom: 28px; }
+.filter-row {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+  padding: 10px 0;
+}
+.filter-row + .filter-row { border-top: 1px solid var(--border); }
+.filter-label {
+  font-size: 0.75rem; font-weight: 600; color: var(--text-mute);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  margin-right: 8px; flex-shrink: 0;
 }
 .filter-btn {
-  padding: 6px 16px;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  background: var(--card);
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: all 0.15s;
+  padding: 7px 14px; border: 1px solid var(--border); border-radius: 10px;
+  background: var(--card); color: var(--text-sub);
+  font-size: 0.82rem; font-weight: 500; cursor: pointer;
+  transition: all 0.15s ease; font-family: inherit;
 }
-.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
-.filter-btn.active {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 16px;
-}
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.2s;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.card:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  transform: translateY(-2px);
-  border-color: var(--accent);
-}
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 8px;
-}
-.card-company { font-size: 0.8rem; color: var(--text-secondary); font-weight: 500; }
-.card-tag {
-  font-size: 0.72rem;
-  padding: 2px 10px;
-  border-radius: 12px;
-  white-space: nowrap;
-}
-.card-title { font-size: 1.05rem; font-weight: 600; color: var(--text); }
-.card-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-}
-.card-meta span { display: inline-flex; align-items: center; gap: 3px; }
-.empty {
-  text-align: center;
-  padding: 60px 20px;
-  color: var(--text-secondary);
-}
-.stats {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  margin-bottom: 24px;
-}
-.stat { text-align: center; }
-.stat-num { font-size: 1.5rem; font-weight: 700; color: white; }
-.stat-label { font-size: 0.75rem; opacity: 0.7; }
-.footer {
-  text-align: center;
-  padding: 32px 20px;
-  color: var(--text-secondary);
-  font-size: 0.82rem;
-}
-.footer a { color: var(--accent); text-decoration: none; }
+.filter-btn:hover { border-color: #d1d1d6; color: var(--text); }
+.filter-btn.active { background: var(--text); color: white; border-color: var(--text); }
+.filter-btn.no-content { opacity: 0.45; }
 
-.tag-后端 { background: var(--indigo-light); color: var(--indigo); }
-.tag-前端 { background: var(--teal-light); color: var(--teal); }
-.tag-算法 { background: var(--purple-light); color: var(--purple); }
-.tag-Agent { background: var(--green-light); color: var(--green); }
-.tag-Infra { background: var(--orange-light); color: var(--orange); }
-.tag-数据 { background: var(--pink-light); color: var(--pink); }
-.tag-架构 { background: var(--code-bg); color: var(--text-secondary); }
-.tag-安全 { background: var(--red-light); color: var(--red); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px;
+  text-decoration: none; color: inherit;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex; flex-direction: column; gap: 14px;
+  position: relative; overflow: hidden;
+}
+.card::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--card-accent, var(--accent)); opacity: 0; transition: opacity 0.25s;
+}
+.card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: transparent; }
+.card:hover::before { opacity: 1; }
+.card-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.card-company { font-size: 0.78rem; color: var(--text-sub); font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }
+.card-badge { font-size: 0.68rem; padding: 3px 10px; border-radius: 8px; font-weight: 600; white-space: nowrap; }
+.card-title { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.4; }
+.card-info { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 0.8rem; color: var(--text-sub); margin-top: auto; }
+.card-arrow {
+  position: absolute; bottom: 20px; right: 20px;
+  width: 28px; height: 28px; border-radius: 50%; background: var(--bg-warm);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.25s;
+}
+.card:hover .card-arrow { opacity: 1; }
+.card-arrow svg { width: 14px; height: 14px; stroke: var(--text-sub); fill: none; stroke-width: 2; }
+
+.b-后端 { background: #eef2ff; color: #4f46e5; --card-accent: #4f46e5; }
+.b-前端 { background: #ccfbf1; color: #0d9488; --card-accent: #0d9488; }
+.b-算法 { background: #f3e8ff; color: #7c3aed; --card-accent: #7c3aed; }
+.b-Agent { background: #dcfce7; color: #16a34a; --card-accent: #16a34a; }
+.b-Infra { background: #fed7aa; color: #ea580c; --card-accent: #ea580c; }
+.b-数据 { background: #fce7f3; color: #db2777; --card-accent: #db2777; }
+.b-架构 { background: #f1f5f9; color: #64748b; --card-accent: #64748b; }
+.b-安全 { background: #fee2e2; color: #dc2626; --card-accent: #dc2626; }
+
+.empty-state { text-align: center; padding: 80px 20px; color: var(--text-mute); }
+.footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border); margin-top: 40px; }
+.footer p { font-size: 0.82rem; color: var(--text-mute); margin-bottom: 4px; }
+.footer a { color: var(--accent); text-decoration: none; font-weight: 500; }
+.star-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 10px !important; font-size: 0.85rem !important;
+  color: var(--text-sub) !important;
+}
+.star-cta .star { font-size: 1rem; }
+
+@media (max-width: 640px) {
+  .brand { font-size: 1.3rem; }
+  .header h1 { font-size: 1.8rem; }
+  .header { padding: 40px 20px 28px; }
+  .stats-row { gap: 24px; }
+  .grid { grid-template-columns: 1fr; }
+  .filter-label { width: 100%; margin-bottom: 4px; }
+}
 </style>
 </head>
 <body>
 
-<div class="hero">
-  <h1>offerseed 面经合集</h1>
-  <p>互联网大厂 & AI 公司真实面试经验，按公司、方向分类整理，持续更新中。</p>
-  <div class="search-box">
-    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+<header class="header">
+  <div class="brand">offerseed</div>
+  <h1>面经合集</h1>
+  <p class="tagline">互联网大厂 & AI 公司真实面试经验，按方向分类整理</p>
+
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
     <input type="text" id="search" placeholder="搜索公司、岗位、方向..." />
   </div>
-  <div class="stats" style="margin-top: 20px;">
-    <div class="stat"><div class="stat-num" id="stat-total">0</div><div class="stat-label">面经数</div></div>
-    <div class="stat"><div class="stat-num" id="stat-companies">0</div><div class="stat-label">公司数</div></div>
-    <div class="stat"><div class="stat-num">8</div><div class="stat-label">方向</div></div>
-  </div>
-</div>
 
-<div class="container">
-  <div class="filters" id="filters">
-    <button class="filter-btn active" data-cat="all">全部</button>
-    <button class="filter-btn" data-cat="后端服务端">后端/服务端</button>
-    <button class="filter-btn" data-cat="前端客户端">前端/客户端</button>
-    <button class="filter-btn" data-cat="大模型算法">大模型/算法</button>
-    <button class="filter-btn" data-cat="Agent开发">Agent开发</button>
-    <button class="filter-btn" data-cat="AI-Infra">AI Infra</button>
-    <button class="filter-btn" data-cat="数据">数据</button>
-    <button class="filter-btn" data-cat="基础架构">基础架构</button>
-    <button class="filter-btn" data-cat="安全">安全</button>
+  <div class="stats-row">
+    <div class="stat-item"><div class="stat-num" id="stat-total">0</div><div class="stat-label">面经</div></div>
+    <div class="stat-item"><div class="stat-num" id="stat-companies">0</div><div class="stat-label">公司</div></div>
+    <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">方向</div></div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="filter-section">
+    <div class="filter-row" id="filters">
+      <span class="filter-label">方向</span>
+      <button class="filter-btn active" data-cat="all">全部</button>
+      <button class="filter-btn" data-cat="后端服务端">后端/服务端</button>
+      <button class="filter-btn" data-cat="前端客户端">前端/客户端</button>
+      <button class="filter-btn" data-cat="大模型算法">大模型/算法</button>
+      <button class="filter-btn" data-cat="Agent开发">Agent开发</button>
+      <button class="filter-btn" data-cat="AI-Infra">AI Infra</button>
+      <button class="filter-btn" data-cat="数据">数据</button>
+      <button class="filter-btn" data-cat="基础架构">基础架构</button>
+      <button class="filter-btn" data-cat="安全">安全</button>
+    </div>
+    <div class="filter-row" id="company-filters">
+      <span class="filter-label">公司</span>
+      <!-- company buttons dynamically inserted here -->
+    </div>
   </div>
 
   <div class="grid" id="grid"></div>
-  <div class="empty" id="empty" style="display:none;">
-    <p>没有找到匹配的面经。</p>
+  <div class="empty-state" id="empty" style="display:none;">
+    <p>没有找到匹配的面经</p>
   </div>
-</div>
+</main>
 
-<div class="footer">
+<footer class="footer">
   <p>offerseed · 面向在校生的求职资料库</p>
-  <p><a href="https://github.com/offerseed/interview-experience">GitHub 仓库</a> · 欢迎投稿面经</p>
-</div>
+  <p><a href="https://github.com/offerseed/interview-experience">GitHub</a> · 欢迎投稿面经</p>
+  <p class="star-cta"><span class="star">⭐</span> 觉得有用的话，欢迎点个 Star 支持我们</p>
+</footer>
 
 <script>
 const PAGES_BASE = "https://offerseed.github.io/interview-experience";
@@ -217,75 +208,104 @@ const interviews = [
     title: "AMD GPU加速面试",
     position: "GPU 加速工程师",
     rounds: "3轮技术 + HR",
-    result: "Offer ✅",
+    result: "Offer",
     date: "2026-09",
     category: "AI-Infra",
     categoryLabel: "AI Infra",
-    tagClass: "tag-Infra",
+    badgeClass: "b-Infra",
     url: PAGES_BASE + "/by-company/AMD/AI-Infra/AMD-GPU%E5%8A%A0%E9%80%9F%E9%9D%A2%E8%AF%95.html"
   },
   {
     company: "阿里巴巴",
-    title: "阿里巴巴Agent开发面试",
+    title: "阿里巴巴 Agent 开发面试",
     position: "Agent 开发工程师",
     rounds: "4轮技术 + HR",
     result: "流程中",
     date: "2026-09",
     category: "Agent开发",
     categoryLabel: "Agent开发",
-    tagClass: "tag-Agent",
+    badgeClass: "b-Agent",
     url: PAGES_BASE + "/by-company/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/Agent%E5%BC%80%E5%8F%91/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Agent%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95.html"
   }
 ];
 
+let currentCompany = "all";
 let currentFilter = "all";
 let searchTerm = "";
+
+// All companies in the repo (with or without interviews yet)
+const allCompanies = [
+  "AMD", "B站", "MiniMax", "NVIDIA", "京东", "华为", "大疆", "字节跳动",
+  "小红书", "小马智行", "小鹏汽车", "快手", "拼多多", "携程", "文远知行",
+  "智谱AI", "月之暗面", "滴滴出行", "爱诗科技", "理想汽车", "百度",
+  "米哈游", "网易", "美团", "腾讯", "蔚来", "阶跃星辰", "阿里巴巴",
+  "零一万物", "面壁智能"
+];
+
+// Build company filter buttons (all companies, not just those with content)
+function buildCompanyFilters() {
+  const container = document.getElementById("company-filters");
+  let html = '<span class="filter-label">公司</span>';
+  html += '<button class="filter-btn active" data-company="all">全部</button>';
+  allCompanies.forEach(c => {
+    const hasContent = interviews.some(i => i.company === c);
+    html += `<button class="filter-btn${hasContent ? '' : ' no-content'}" data-company="${c}">${c}</button>`;
+  });
+  container.innerHTML = html;
+}
 
 function render() {
   const grid = document.getElementById("grid");
   const empty = document.getElementById("empty");
-
   let filtered = interviews.filter(item => {
+    const companyMatch = currentCompany === "all" || item.company === currentCompany;
     const catMatch = currentFilter === "all" || item.category === currentFilter;
-    const searchMatch = !searchTerm ||
-      item.company.toLowerCase().includes(searchTerm) ||
-      item.title.toLowerCase().includes(searchTerm) ||
-      item.position.toLowerCase().includes(searchTerm) ||
-      item.categoryLabel.toLowerCase().includes(searchTerm);
-    return catMatch && searchMatch;
+    const s = searchTerm;
+    const searchMatch = !s ||
+      item.company.toLowerCase().includes(s) ||
+      item.title.toLowerCase().includes(s) ||
+      item.position.toLowerCase().includes(s) ||
+      item.categoryLabel.toLowerCase().includes(s);
+    return companyMatch && catMatch && searchMatch;
   });
-
   document.getElementById("stat-total").textContent = filtered.length;
-  const companies = new Set(filtered.map(i => i.company));
-  document.getElementById("stat-companies").textContent = companies.size;
-
-  if (filtered.length === 0) {
-    grid.innerHTML = "";
-    empty.style.display = "block";
-    return;
-  }
+  document.getElementById("stat-companies").textContent = new Set(filtered.map(i => i.company)).size;
+  if (filtered.length === 0) { grid.innerHTML = ""; empty.style.display = "block"; return; }
   empty.style.display = "none";
-
   grid.innerHTML = filtered.map(item => `
     <a class="card" href="${item.url}" target="_blank">
-      <div class="card-header">
+      <div class="card-top">
         <span class="card-company">${item.company}</span>
-        <span class="card-tag ${item.tagClass}">${item.categoryLabel}</span>
+        <span class="card-badge ${item.badgeClass}">${item.categoryLabel}</span>
       </div>
       <div class="card-title">${item.title}</div>
-      <div class="card-meta">
-        <span>📍 ${item.position}</span>
-        <span>🔄 ${item.rounds}</span>
-        <span>📅 ${item.date}</span>
+      <div class="card-info">
+        <span>${item.position}</span>
+        <span>${item.rounds}</span>
+        <span>${item.date}</span>
         <span>${item.result}</span>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </div>
     </a>
   `).join("");
 }
 
+// Company filter clicks
+document.getElementById("company-filters").addEventListener("click", e => {
+  if (e.target.classList.contains("filter-btn")) {
+    document.querySelectorAll("#company-filters .filter-btn").forEach(b => b.classList.remove("active"));
+    e.target.classList.add("active");
+    currentCompany = e.target.dataset.company;
+    render();
+  }
+});
+
+// Direction filter clicks
 document.getElementById("filters").addEventListener("click", e => {
   if (e.target.classList.contains("filter-btn")) {
-    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll("#filters .filter-btn").forEach(b => b.classList.remove("active"));
     e.target.classList.add("active");
     currentFilter = e.target.dataset.cat;
     render();
@@ -297,6 +317,7 @@ document.getElementById("search").addEventListener("input", e => {
   render();
 });
 
+buildCompanyFilters();
 render();
 </script>
 </body>
