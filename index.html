@@ -180,6 +180,14 @@ body {
       <button class="filter-btn" data-cat="基础架构">基础架构</button>
       <button class="filter-btn" data-cat="安全">安全</button>
     </div>
+    <div class="filter-row" id="company-type-filters">
+      <span class="filter-label">公司类型</span>
+      <button class="filter-btn active" data-ctype="all">全部</button>
+      <button class="filter-btn" data-ctype="AI公司">AI 公司</button>
+      <button class="filter-btn" data-ctype="互联网大厂">互联网大厂</button>
+      <button class="filter-btn" data-ctype="自动驾驶">自动驾驶</button>
+      <button class="filter-btn" data-ctype="芯片/硬件">芯片 / 硬件</button>
+    </div>
     <div class="filter-row" id="company-filters">
       <span class="filter-label">公司</span>
       <!-- company buttons dynamically inserted here -->
@@ -228,35 +236,50 @@ const interviews = [
   }
 ];
 
+let currentCompanyType = "all";
 let currentCompany = "all";
 let currentFilter = "all";
 let searchTerm = "";
 
-// All companies in the repo (with or without interviews yet)
-const allCompanies = [
-  "AMD", "B站", "MiniMax", "NVIDIA", "京东", "华为", "大疆", "字节跳动",
-  "小红书", "小马智行", "小鹏汽车", "快手", "拼多多", "携程", "文远知行",
-  "智谱AI", "月之暗面", "滴滴出行", "爱诗科技", "理想汽车", "百度",
-  "米哈游", "网易", "美团", "腾讯", "蔚来", "阶跃星辰", "阿里巴巴",
-  "零一万物", "面壁智能"
-];
+// Company groups (categorized)
+const companyGroups = {
+  "AI公司": ["MiniMax", "智谱AI", "月之暗面", "爱诗科技", "阶跃星辰", "零一万物", "面壁智能"],
+  "互联网大厂": ["B站", "京东", "字节跳动", "小红书", "快手", "拼多多", "携程", "滴滴出行", "百度", "米哈游", "网易", "美团", "腾讯", "阿里巴巴"],
+  "自动驾驶": ["小马智行", "小鹏汽车", "文远知行", "理想汽车", "蔚来"],
+  "芯片/硬件": ["AMD", "NVIDIA", "华为", "大疆"]
+};
 
-// Build company filter buttons (all companies, not just those with content)
+// Flatten for lookup
+const companyToType = {};
+Object.entries(companyGroups).forEach(([type, companies]) => {
+  companies.forEach(c => { companyToType[c] = type; });
+});
+
+// Build company filter buttons based on selected type
 function buildCompanyFilters() {
   const container = document.getElementById("company-filters");
+  let companies;
+  if (currentCompanyType === "all") {
+    companies = Object.values(companyGroups).flat();
+  } else {
+    companies = companyGroups[currentCompanyType] || [];
+  }
   let html = '<span class="filter-label">公司</span>';
   html += '<button class="filter-btn active" data-company="all">全部</button>';
-  allCompanies.forEach(c => {
+  companies.forEach(c => {
     const hasContent = interviews.some(i => i.company === c);
     html += `<button class="filter-btn${hasContent ? '' : ' no-content'}" data-company="${c}">${c}</button>`;
   });
   container.innerHTML = html;
+  // Reset company selection when type changes
+  currentCompany = "all";
 }
 
 function render() {
   const grid = document.getElementById("grid");
   const empty = document.getElementById("empty");
   let filtered = interviews.filter(item => {
+    const typeMatch = currentCompanyType === "all" || companyToType[item.company] === currentCompanyType;
     const companyMatch = currentCompany === "all" || item.company === currentCompany;
     const catMatch = currentFilter === "all" || item.category === currentFilter;
     const s = searchTerm;
@@ -265,7 +288,7 @@ function render() {
       item.title.toLowerCase().includes(s) ||
       item.position.toLowerCase().includes(s) ||
       item.categoryLabel.toLowerCase().includes(s);
-    return companyMatch && catMatch && searchMatch;
+    return typeMatch && companyMatch && catMatch && searchMatch;
   });
   document.getElementById("stat-total").textContent = filtered.length;
   document.getElementById("stat-companies").textContent = new Set(filtered.map(i => i.company)).size;
@@ -290,6 +313,17 @@ function render() {
     </a>
   `).join("");
 }
+
+// Company type filter clicks
+document.getElementById("company-type-filters").addEventListener("click", e => {
+  if (e.target.classList.contains("filter-btn")) {
+    document.querySelectorAll("#company-type-filters .filter-btn").forEach(b => b.classList.remove("active"));
+    e.target.classList.add("active");
+    currentCompanyType = e.target.dataset.ctype;
+    buildCompanyFilters();
+    render();
+  }
+});
 
 // Company filter clicks
 document.getElementById("company-filters").addEventListener("click", e => {
