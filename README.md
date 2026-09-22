@@ -16,7 +16,7 @@
 
 ## 🤝 贡献面经
 
-请阅读 [CONTRIBUTING.md](https://github.com/offerseed/.github/blob/main/CONTRIBUTING.md)，按 `templates/` 里的模板提交 PR 或 Issue。
+请阅读 [CONTRIBUTING.md](https://github.com/offerseed/interview-experience/blob/main/CONTRIBUTING.md)，按 `templates/` 里的模板提交 PR 或 Issue。
 
 ---
 
