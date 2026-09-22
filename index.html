@@ -184,9 +184,11 @@ body {
       <span class="filter-label">公司类型</span>
       <button class="filter-btn active" data-ctype="all">全部</button>
       <button class="filter-btn" data-ctype="AI公司">AI 公司</button>
+      <button class="filter-btn" data-ctype="AI初创">AI 初创</button>
       <button class="filter-btn" data-ctype="互联网大厂">互联网大厂</button>
       <button class="filter-btn" data-ctype="自动驾驶">自动驾驶</button>
       <button class="filter-btn" data-ctype="芯片/硬件">芯片 / 硬件</button>
+      <button class="filter-btn" data-ctype="具身初创">具身初创</button>
     </div>
     <div class="filter-row" id="company-filters">
       <span class="filter-label">公司</span>
@@ -244,9 +246,11 @@ let searchTerm = "";
 // Company groups (categorized)
 const companyGroups = {
   "AI公司": ["MiniMax", "智谱AI", "月之暗面", "爱诗科技", "阶跃星辰", "零一万物", "面壁智能"],
+  "AI初创": [],
   "互联网大厂": ["B站", "京东", "字节跳动", "小红书", "快手", "拼多多", "携程", "滴滴出行", "百度", "米哈游", "网易", "美团", "腾讯", "阿里巴巴"],
   "自动驾驶": ["小马智行", "小鹏汽车", "文远知行", "理想汽车", "蔚来"],
-  "芯片/硬件": ["AMD", "NVIDIA", "华为", "大疆"]
+  "芯片/硬件": ["AMD", "NVIDIA", "华为", "大疆"],
+  "具身初创": []
 };
 
 // Flatten for lookup
