@@ -414,6 +414,8 @@ function render() {
       item.categoryLabel.toLowerCase().includes(s);
     return typeMatch && companyMatch && catMatch && searchMatch;
   });
+  // Sort by date descending (newest first)
+  filtered.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
   document.getElementById("stat-total").textContent = filtered.length;
   document.getElementById("stat-companies").textContent = new Set(filtered.map(i => i.company)).size;
   if (filtered.length === 0) { grid.innerHTML = ""; empty.style.display = "block"; return; }
